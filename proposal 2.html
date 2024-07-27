@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HI, Tjangu!</title>
+    <link rel="stylesheet" href="styles.css">
+<style type="text/css" id="dcoder_stylesheet">body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: Black;
+    color: orange;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: url('https://pixabay.com/photos/automobile-audi-sports-car-vehicle-5148314/') no-repeat center center;
+    background-size: cover;
+    padding: 60px;
+    color: white;
+}
+
+.intro, .questions, .final-message, .proposal {
+    padding: 20px;
+    margin: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: orange;
+}
+
+.question {
+    display: none;
+}
+
+.final-message, .proposal {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.questions {
+    background: url('https://pixabay.com/illustrations/spiderman-character-superhero-5561671/') no-repeat center center;
+    background-size: cover;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+</style></head>
+<body>
+    <header>
+        <h1>Hi Tjangu, I’ve Been Thinking...</h1>
+    </header>
+    <section class="intro">
+        <p>Welcome to a special place where I want to make things right. I know I haven't always been the best, but I realize now how much you mean to me. Can we take a little journey together?</p>
+        <button id="start-button">Start</button>
+    </section>
+    <section id="questions" class="questions">
+        <div id="question1" class="question">
+            <h2>What's your favorite thing about cars?</h2>
+            <button onclick="showNextQuestion('question2')">Speed</button>
+            <button onclick="showNextQuestion('question2')">Design</button>
+            <button onclick="showNextQuestion('question2')">Technology</button>
+        </div>
+        <div id="question2" class="question" style="display: none;">
+            <h2>As an architect, what's your favorite type of building?</h2>
+            <button onclick="showNextQuestion('question3')">Modern</button>
+            <button onclick="showNextQuestion('question3')">Classical</button>
+            <button onclick="showNextQuestion('question3')">Futuristic</button>
+        </div>
+        <div id="question3" class="question" style="display: none;">
+            <h2>What makes Spider-Man special to you?</h2>
+            <button onclick="showFinalMessage()">His strength</button>
+            <button onclick="showFinalMessage()">His bravery</button>
+            <button onclick="showFinalMessage()">His heart</button>
+        </div>
+    </section>
+    <section id="final-message" class="final-message" style="display: none;">
+        <h2>I’m deeply sorry for how I treated you. I’ve come to realize how precious you are to me and how much I want to fight for us. Will you give us another chance?</h2>
+        <button onclick="showProposal()">Yes!</button>
+        <button onclick="showWaitMessage()">Not yet</button>
+    </section>
+    <section id="proposal" class="proposal" style="display: none;">
+        <h2>Thank you, Tjangu! I know i treat you badly &amp; i suck &amp; all the bad thing's i have ever done but really Keago rata tota. Here’s to us and a new chapter.send me a random sticker mo whatsApp to let me know you got this safe &amp; sound""!</h2>
+    </section>
+    <script src="script.js"></script>
+
+<script type="text/javascript" id="dcoder_script">document.getElementById('start-button').addEventListener('click', function() {
+    document.querySelector('.intro').style.display = 'none';
+    document.getElementById('questions').style.display = 'block';
+    document.getElementById('question1').style.display = 'block';
+});
+
+function showNextQuestion(nextQuestionId) {
+    const currentQuestion = document.querySelector('.questions .question:not([style*="display: none"])');
+    currentQuestion.style.display = 'none';
+    document.getElementById(nextQuestionId).style.display = 'block';
+}
+
+function showFinalMessage() {
+    document.querySelector('.questions').style.display = 'none';
+    document.getElementById('final-message').style.display = 'block';
+}
+
+function showProposal() {
+    document.getElementById('final-message').style.display = 'none';
+    document.getElementById('proposal').style.display = 'block';
+}
+
+function showWaitMessage() {
+    alert('Take your time, I’ll be here waiting!');
+}
+</script></body></html>
